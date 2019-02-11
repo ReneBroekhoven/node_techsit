@@ -1,0 +1,46 @@
+#1,2,3,4
+Nodemon : 
+   install npm nodemon -g
+   Dit zorgt voor continue monitoring van verandering in de file die je runt op nodemon
+   Gebruik ipv node app(.js)  : nodemon app(.js)
+
+Globals in Node :
+   process : aan je eigen nu gebruikte machine gerelateerd
+      in process zijn de diverse omgevingsvariabelen
+   require : is dus ook een global ! (wordt in toekomst ook import zoals in js)
+      om files te importeren
+   module : om een file te exporteren !!
+      module heeft een property : exports
+      als je iets aan module.exports koppelt : dan wordt het geexporteerd
+      er is ook een paths property; om paths op te kunnen zoeken
+         - deze wordt ook gebruikt bij een require van shipped modules
+   global : 
+      process is een prop weer van global
+      je maakt een global variabele door global.myGlobal = "3.14"
+      wordt wel afgeraden
+   __dirname : 
+      geen echte global maar in een file verwijst het naar de huidige directory
+   __filename :  
+      geen echte global maar in een file verwijst het naar de huidige file met zijn path
+      
+#5 Modules
+- internal/shipped modules (van Node zelf)
+   - om dit te importeren : const fs = require('fs')
+   - zoals je ziet zonder path aanduiding
+- external modules (van anderen die je kan gebruiken)
+- je eigen module
+   - om te exporteren uit myFile : module.exports = jeEigenfunctie
+   - om dit te importeren : cont myFunc = require('./myFile')
+De volgorde van importeren : eerst resolve (= vinden_ , dan load, dan een wrapper eromheen om juistescope te krijgen )
+en er wordt een cache van aangemaakt
+In ES6 (nog experimental) : 
+   exporteren : export default jeEigenfunctie
+   importeren : import jeEigenFile from './myFile'
+
+#6 External Modules
+bv. const npmLodash = require('lodash');
+moet je het wel met npm of yarn hebben geinstalleerd
+
+#7
+
+
